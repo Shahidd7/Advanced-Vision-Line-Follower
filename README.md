@@ -1,2 +1,33 @@
-# Advanced-Vision-Line-Follower
-A professional-grade line follower using Raspberry Pi &amp; Arduino. Features OpenCV adaptive vision, Proportional-Derivative (PD) smooth steering, acceleration gradients, corner memory for sharp turns, and a live interactive web dashboard to monitor and tune the robot.
+# Advanced Computer Vision Line Follower Robot
+
+A dual-microcontroller robotics project utilizing OpenCV, Proportional-Derivative (PD) control, and a web-based dashboard for real-time monitoring and control.
+
+## 🧠 System Architecture
+This robot splits its processing between two boards to ensure high frame rates and precise motor control:
+* **The Brain (Raspberry Pi):** Captures video via USB camera, processes frames using OpenCV adaptive thresholding, calculates centroid error, runs the PD control loop, and hosts a Flask web server for UI.
+* **The Muscle (Arduino Nano):** Receives target Left/Right wheel speeds via Serial (115200 baud) and executes differential steering through an L298N motor driver.
+
+## ✨ Key Features
+* **Adaptive Computer Vision:** Uses `cv2.adaptiveThreshold` to ignore global room lighting and detect lines dynamically based on local floor contrast.
+* **Kinematic Smoothing:** Implements an acceleration/braking speed gradient to prevent wheel slip and jerky movements.
+* **Proportional-Derivative (PD) Control:** Calculates steering angle based on current error and rate of change, resulting in smooth, sweeping turns.
+* **Corner Memory:** If the robot encounters a sharp 90-degree corner and loses the line, it references the `last_known_error` to commit to a hard-spin search until the line is re-acquired.
+* **Live Web Dashboard:** A Flask-hosted UI featuring a dual-screen camera view (Raw vs B&W Mask), a Start/Stop safety kill switch, and a live top-speed tuning slider.
+
+## 🛠️ Hardware Requirements
+* Raspberry Pi (3, 4, or Zero 2W)
+* Arduino Nano / Uno
+* USB Web Camera
+* L298N (or similar) Motor Driver
+* 2x DC Motors & Chassis
+
+## 🚀 How to Run
+
+1. **Flash the Arduino:**
+   Upload `arduino_muscle/arduino_muscle.ino` to your Arduino Nano using the Arduino IDE.
+   
+2. **Setup the Raspberry Pi:**
+   SSH into your Raspberry Pi and clone this repository.
+   ```bash
+   git clone [https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git](https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git)
+   cd Advanced-Vision-Line-Follower
