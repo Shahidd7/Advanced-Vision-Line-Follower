@@ -31,5 +31,5 @@ This specific build utilizes the following hardware components:
 2. **Setup the Raspberry Pi:**
    SSH into your Raspberry Pi 4 and clone this repository.
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git](https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git)
+   git clone (https://github.com/Shahidd7/Advanced-Vision-Line-Follower.git)
    cd Advanced-Vision-Line-Follower
