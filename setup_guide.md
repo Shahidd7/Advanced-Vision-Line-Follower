@@ -20,7 +20,7 @@ sudo usermod -aG dialout $USER
 Clone this repository to your Raspberry Pi:
 
 Bash
-git clone [https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git](https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git)
+git clone [https://github.com/YOUR_USERNAME/Advanced-Vision-Line-Follower.git](https://github.com/Shahidd7/Advanced-Vision-Line-Follower.git)
 cd Advanced-Vision-Line-Follower
 Install the required Python libraries. On newer Raspberry Pi OS versions (Bookworm), it is recommended to use the system package manager for OpenCV and Serial:
 
